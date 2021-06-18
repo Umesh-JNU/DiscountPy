@@ -1,0 +1,24 @@
+{
+    "python.testing.pytestArgs": [
+        "Discount"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.pytest_cache": true,
+        "**/__pycache__":true
+    },
+    "python.formatting.provider": "black",
+    "python.linting.prospectorEnabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pycodestyleEnabled": false,
+    "python.pythonPath": "C:\\Users\\umesh\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\discountpy-ntVpiIJ9-py3.9"
+    
+}
