@@ -38,8 +38,8 @@ class ReadSplitConf(CoreConf):
         return me.MotifExtractor(useSpace, self.K)
 
 def printSup(s, k):
-    print(f'{s[0].feature.pattern} (pos {s[0].position}, rank {s[0].feature.rank}, len {len(s[1])-k+1} k-mers)', end='')
-    after, before = s[1].split(s[0].feature.pattern, 1)
+    print(f'{s[0].feature.pattern} (pos {s[0].position}, rank {s[0].feature.rank}, len {len(s[1])-k+1} k-mers)', end=' ')
+    before, after = s[1].split(s[0].feature.pattern, 1)
     print(f'{before}{Col.C}{s[0].feature.pattern}{Col.W}{after}')
 
 
