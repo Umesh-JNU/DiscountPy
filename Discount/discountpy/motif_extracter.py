@@ -20,15 +20,12 @@ class MotifExtractor:
     def slidingTopMotifs(self, read):
         matches = self.scanner.allMatches(read)
         windowMotifs = PosRankWindow()
-        
-        if (len(read) < self.K):
-            return iter()
-        else:
-            pos = self.width - self.K
-            for m in matches:
-                windowMotifs.moveWindowAndInsert(pos, m)
-                pos += 1
-                yield windowMotifs.top()
+
+        pos = self.width - self.K
+        for m in matches:
+            windowMotifs.moveWindowAndInsert(pos, m)
+            pos += 1
+            yield windowMotifs.top()
                 
     """ find the regions of the top motifs in reads
     """
@@ -36,7 +33,7 @@ class MotifExtractor:
         topMotifs = self.slidingTopMotifs(read)
         self.drop(topMotifs, self.K - self.width)
         
-        lastMotif = next(topMotifs)
+        lastMotif = next(topMotifs, None)
 
         consumed = 1
         startReg = 1
@@ -56,9 +53,12 @@ class MotifExtractor:
     """ Return all the Super-mers
     """
     def splitRead(self, read):
+        if len(read) < self.K:
+            return
+
         readByReg = self.regionsInRead(read)
 
-        prev = next(readByReg)
+        prev = next(readByReg, None)
         while readByReg:
             b1 = prev
             b2 = next(readByReg, None)

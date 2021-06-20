@@ -1,3 +1,4 @@
+import re
 from .color import Col
 from src.coreConfig import CoreConf
 from discountpy import (motif_space as ms,
@@ -14,7 +15,8 @@ class ReadSplitConf(CoreConf):
         # degenerateAndUnknown = "[^ACTGU]+"
         with open(self.DATASET) as f:
             for _ in filter(lambda _: not _.startswith('>'), f):
-                yield _.strip('\n')
+                for _ in re.split(r"[^ACGTU]+", _.rstrip('\n')):
+                    yield _
         
     def getFrequencySpace(self, validMotifs) -> ms.MotifSpace:
         inputdata = self.getInputSequences()
