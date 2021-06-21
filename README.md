@@ -18,7 +18,7 @@
 <a href="https://github.com/Umesh-JNU/Discount-In-Python/issues"><img src="https://img.shields.io/github/issues/Umesh-JNU/Discount-In-Python" alt="Issues Badge"/></a>
 </div>
 
-### Contents:
+# Contents:
   - [Requirements](#requirements)
   - [Setup](#setup)
   - [Some codes](#some-codes)
