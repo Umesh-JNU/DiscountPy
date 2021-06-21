@@ -1,20 +1,17 @@
 <div align="center">
  <h1>DiscountPy : <i>k-mer counting tool</i></h1>
- [![GPL-3.0](https://img.shields.io/github/license/ESKYoung/shields-io-visitor-counter?logo=GNU&logoColor=FFFFFF&style=flat-square)](https://github.com/ESKYoung/shields-io-visitor-counter/blob/main/LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/ESKYoung/shields-io-visitor-counter?logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/ESKYoung/shields-io-visitor-counter)
-[![Python 3.6+](https://img.shields.io/badge/python-3.6+-3776AB?logo=Python&logoColor=FFFFFF&style=flat-square)](https://www.python.org/)
-[![Travis CI](https://img.shields.io/travis/com/ESKYoung/shields-io-visitor-counter/main?logo=Travis%20CI&logoColor=FFFFFF&style=flat-square)](https://travis-ci.com/github/ESKYoung/shields-io-visitor-counter)
-[![Codecov](https://img.shields.io/codecov/c/github/ESKYoung/shields-io-visitor-counter/main?logo=Codecov&logoColor=FFFFFF&style=flat-square)](https://codecov.io/gh/ESKYoung/shields-io-visitor-counter)
-[![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=ESKYoung.shields-io-visitor-counter&color=1D70B8&logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/ESKYoung/shields-io-visitor-counter)
- 
- [![Python 3.6+](https://img.shields.io/badge/python-3.6+-3776AB?logo=Python&logoColor=FFFFFF&style=flat-square)](https://www.python.org/)
- <img src="https://img.shields.io/badge/python-3.6+-3776AB?logo=Python&logoColor=FFFFFF&style=flat-square" />
-<img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=darkgreen" />
-<img alt="Jupyter" src="https://img.shields.io/badge/Jupyter-%23F37626.svg?style=for-the-badge&logo=Jupyter&logoColor=white" />
-<img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/poetry?label=Python-poetry&style=for-the-badge">
-[![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=ESKYoung.shields-io-visitor-counter&color=1D70B8&logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/ESKYoung/shields-io-visitor-counter)
+ <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=darkgreen" />
+ <img alt="Jupyter" src="https://img.shields.io/badge/Jupyter-%23F37626.svg?style=for-the-badge&logo=Jupyter&logoColor=white" />
+ <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/poetry?label=Python-poetry&style=for-the-badge">
 </div>
+
 <div align="center">
+ 
+[![MIT](https://img.shields.io/apm/l/vim-mode?color=orange&logo=orange&logoColor=yellow&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/Umesh-JNU/Discount-In-Python?logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python)
+[![Python 3.6+](https://img.shields.io/badge/python-3.6+-3776AB?logo=Python&logoColor=FFFFFF&style=flat-square)](https://www.python.org/)
+[![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=Umesh-JNU.Discount-In-Python.Discount&color=1D70B8&logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python)
+
 <a href="https://github.com/Umesh-JNU/Discount-In-Python/stargazers"><img src="https://img.shields.io/github/stars/Umesh-JNU/Discount-In-Python" alt="Stars Badge"/></a>
 <a href="https://github.com/Umesh-JNU/Discount-In-Python/network/members"><img src="https://img.shields.io/github/forks/Umesh-JNU/Discount-In-Python" alt="Forks Badge"/></a>
 <a href="https://github.com/Umesh-JNU/Discount-In-Python/pulls"><img src="https://img.shields.io/github/issues-pr/Umesh-JNU/Discount-In-Python" alt="Pull Requests Badge"/></a>
@@ -41,16 +38,45 @@ Now ` DiscountPy ` is ready to be run.
 
 ## Some codes
 ``` DiscountPy ``` is a k-mer counting tool, it gives you ` three orderings ` for counting the k-mers.
-``` k ` : Length of the k-mer
-` f ` : Input dataset (.fasta)
-` o ` : Order (lex | freq)
-```
-#### How to use?
-1. Get a URL
-2. Create a img tag 
-3. Copy and paste on your profile
+* ` -k ` : Length of the k-mer
+* ` -m ` : Width of the minimizers
+* ` -f ` : Input dataset (.fasta)
+* ` -o ` : Order (lex | freq)
+* ` --minimizers ` : Universal minimizer set 
 
-#Discount-In-Python
-A k-mer counting and minimizer analyzing tool
-<h3>License</h3>
-<img alt="License MIT" src="https://img.shields.io/apm/l/vim-mode?color=orange&logo=orange&logoColor=yellow&style=for-the-badge" />
+#### How to use?
+1. To get the hashed super-mers with minimizers
+   * By lexicographically ordered
+
+         discount -k 28 -o lex -f data/SRR094926.fasta 
+     or
+       
+         discount -k 28 -m 10 lex -f data/SRR094926.fasta
+         
+   * By frequency ordering
+
+         discount -k 28 -f data/SRR094926.fasta
+         
+     or you can skip the ` -o ` in frequency order as default value is ` -o freq `
+      
+         discount -k 28 -o freq -f data/SRR094926.fasta
+
+   * By universal frequency ordering
+
+         discount -k 28 -f data/SRR094926.fasta --minimizers PASHA/pasha_all_28_10.txt
+         
+       or
+         
+         discount -k 28 -o freq -f data/SRR094926.fasta --minimizers PASHA/pasha_all_28_10.txt
+2. To generate file of the hashed super-mers:
+      
+       discount -k 28 -o freq -f data/SRR094926.fasta --minimizers PASHA/pasha_all_28_10.txt --output output/xxx.txt
+ 
+ 3. At finally getting the counts of the ` k-mers `:
+     * You have to sort the [above](#to-generate-file-of-the-hashed-super-mers:) generated file externally and input that file.
+         
+           discount -k 28 -f sortedXYZ.txt --count directory/to/counted-kmer-file
+      
+
+### Query
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/Umesh-JNU/Discount-In-Python)
