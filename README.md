@@ -10,7 +10,7 @@
 [![MIT](https://img.shields.io/apm/l/vim-mode?color=orange&logo=orange&logoColor=yellow&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python/LICENSE)
 [![GitHub release](https://img.shields.io/github/v/release/Umesh-JNU/Discount-In-Python?logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python)
 [![Python 3.6+](https://img.shields.io/badge/python-3.6+-3776AB?logo=Python&logoColor=FFFFFF&style=flat-square)](https://www.python.org/)
-[![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=Umesh-JNU.Discount-In-Python.Discount&color=1D70B8&logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python)
+<!-- [![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=Umesh-JNU.Discount-In-Python.Discount&color=1D70B8&logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python) -->
 
 <a href="https://github.com/Umesh-JNU/Discount-In-Python/stargazers"><img src="https://img.shields.io/github/stars/Umesh-JNU/Discount-In-Python" alt="Stars Badge"/></a>
 <a href="https://github.com/Umesh-JNU/Discount-In-Python/network/members"><img src="https://img.shields.io/github/forks/Umesh-JNU/Discount-In-Python" alt="Forks Badge"/></a>
