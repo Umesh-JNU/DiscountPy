@@ -78,5 +78,5 @@ Now ` DiscountPy ` is ready to be run.
            discount -k 28 -f sortedXYZ.txt --count directory/to/counted-kmer-file
       
 
-### Query
+## Query
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/Umesh-JNU/Discount-In-Python)
