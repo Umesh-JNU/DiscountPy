@@ -14,11 +14,14 @@ class CustomArgparser(argparse.ArgumentParser):
 def main():
     # print(sys.argv)    
     parser = CustomArgparser(prog="discount", description="\n\tDiscountPy : A k-mer counting tool")
+    count = parser.add_argument_group('Count k-mers')
+    count.add_argument('--count', metavar='', type=str, help='Generate k-mers counted file. (Input file(.txt) shoud be sorted by minimizers with corresponding super-mers)')
+    req = parser.add_argument_group('Required Arguments')
     parser.version = Col.G + 'DiscountPy version ' + Col.C + __version__ + Col.W
     
-    parser.add_argument("-k", metavar='', type=int, help="Length of the k-mers", required=True)
+    req.add_argument("-k", metavar='', type=int, help="Length of the k-mers", required=True)
     parser.add_argument("-m", metavar='', type=int, help="Width of the minimizers (default 10)", default=10)
-    parser.add_argument("-f", metavar='', type=str, help="Dataset (.fasta)", required=True)
+    req.add_argument("-f", metavar='', type=str, help="Dataset (.fasta)", required=True)
     parser.add_argument("-o", type=str, choices=["lex", "freq"], default="freq",
                               help="Ordering {lex | lexicographic, freq | frequency} (default freq)")
     parser.add_argument("--minimizers", metavar="", type=str, help="Valid minimizers sets")
@@ -26,3 +29,4 @@ def main():
     parser.add_argument("-v", '--version', action='version', help="Version of the tool")
 
     readSplitDemo(parser.parse_args())
+

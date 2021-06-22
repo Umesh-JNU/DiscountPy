@@ -12,7 +12,6 @@ class ReadSplitConf(CoreConf):
         super().__init__(args)
 
     def getInputSequences(self) -> iter:
-        # degenerateAndUnknown = "[^ACTGU]+"
         with open(self.DATASET) as f:
             for _ in filter(lambda _: not _.startswith('>'), f):
                 for _ in re.split(r"[^ACGTU]+", _.rstrip('\n')):
@@ -54,10 +53,10 @@ def readSplitDemo(args):
     if conf.OUTPUT:
         with open(conf.OUTPUT, 'w+') as f:
             for r in conf.getInputSequences():
-                print('Read:', r)
+                # print('Read:', r)
                 for s in spl.splitRead(r):
                     f.write('{0}\t{1}\n'.format(s[0].feature.pattern, s[1]))
-                    printSup(s, spl.K)
+                    # printSup(s, spl.K)
     else:
         for r in conf.getInputSequences():
             print('Read :', r)

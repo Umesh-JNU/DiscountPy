@@ -1,5 +1,6 @@
 import os
 from .color import Col
+from src.counting import countKmers
 from discountpy.motif_space import MotifSpace, _MotifSpace
 
 class DiscountCustomError(Exception):
@@ -18,9 +19,18 @@ def verify(args):
     print(Col.G, 'Verifying the input...', Col.W)
     """ Check for the fasta file format """
     
-    if not args.f.endswith('.fasta'):
-        raise DiscountCustomError("FileFormatError : required .fasta file", args.f, "XXX.fasta")
-    
+    if args.count:
+        if not args.f.endswith('.txt'):
+            raise DiscountCustomError("FileFormatError : required .txt file", args.f.split('/', 1)[1], "XXX.txt")
+        else:
+            try:
+                os.mkdir(os.getcwd() + '\\' + args.count)
+            except OSError:
+                pass
+    else:
+        if not args.f.endswith('.fasta'):
+            raise DiscountCustomError("FileFormatError : required .fasta file", args.f, "XXX.fasta")
+
     """ Check for ordering : if universal frequency minimizer must be entered """
     if args.o == 'ufreq' and not args.minimizers:
         raise DiscountCustomError("UniversalFrequencyOrdering : required -minimizers", args.o, "-minimizers")
@@ -30,7 +40,7 @@ def verify(args):
         raise DiscountCustomError("No such file or directory:", '', args.output)
 
 class CoreConf:
-    __slots__ = ['K','WIDTH','MINIMIZERS','DATASET','ORDER','TEMPLATESPACE', 'OUTPUT']
+    __slots__ = ['K','WIDTH','MINIMIZERS','DATASET','ORDER','TEMPLATESPACE', 'OUTPUT','COUNT']
     K: int
     WIDTH: int
     MINIMIZERS: str
@@ -38,18 +48,27 @@ class CoreConf:
     ORDER: str
     TEMPLATESPACE: MotifSpace
     OUTPUT: str
+    COUNT: str
     
     def __init__(self, args):
         verify(args)
         print(Col.Y, 'Verification done successfully')
-        print(Col.V, 'Executing...', Col.W)
         
         self.K = args.k
-        self.WIDTH = args.m if args.m else 10
         self.DATASET = args.f
+        self.COUNT = args.count
+
+        if self.COUNT:
+            print(Col.V, 'Counting...', Col.W)
+            countKmers(self.K, self.DATASET, self.COUNT)
+            print(Col.V, 'Counting finished.', Col.W)
+            exit()
+        
+        self.WIDTH = args.m if args.m else 10
         self.MINIMIZERS = args.minimizers
         self.ORDER = args.o
-        self.OUTPUT = args.output
+        self.OUTPUT = args.output  
+        print(Col.V, 'Executing...', Col.W)      
         self.TEMPLATESPACE = MotifSpace(_MotifSpace().motifsOfLength(width=self.WIDTH))
         
         # print(self.K, self.WIDTH, self.DATASET, self.MINIMIZERS, self.ORDER)
