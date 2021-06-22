@@ -1,0 +1,43 @@
+Timer unit: 1e-07 s
+
+Total time: 150.847 s
+File: <ipython-input-178-8af283801dcd>
+Function: countKmers at line 10
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    10                                           def countKmers(k: int, inputFile: str, bucket: str):
+    11         1        104.0    104.0      0.0      if not inputFile.endswith('.txt'):
+    12                                                   raise DiscountCustomError("FileFormatError : required .txt file", inputFile.split('/')[-1], "XXX.txt")
+    13                                               else:
+    14         1         42.0     42.0      0.0          try:
+    15         1       8164.0   8164.0      0.0              os.mkdir(bucket)
+    16                                                   except OSError:
+    17                                                       pass
+    18                                               
+    19         1       3760.0   3760.0      0.0      with open(inputFile) as f:
+    20         1         91.0     91.0      0.0          lines = map(lambda _: _.rstrip('\n').split('\t'), f)
+    21                                                   
+    22         1       5597.0   5597.0      0.0          with open(bucket + '/kmers.txt', 'w+') as kmerfile:
+    23    202455    6009653.0     29.7      0.4              for minimizer, thisBin in groupby(lines, lambda _: _[0]):
+    24    202454    7514252.0     37.1      0.5                  supermersThisBin = map(lambda _: _[1], thisBin)
+    25                                                       
+    26    202454    7803245.0     38.5      0.5                  slide = map(lambda sm: sliding(sm, k), supermersThisBin)
+    27    202454    9300137.0     45.9      0.6                  flat = flatten(slide)
+    28    202454  202610124.0   1000.8     13.4                  kmers = iter(sorted(flat))
+    29                                           
+    30                                           #                 kmers = sorted(flat)
+    31                                           #                 print(minimizer, kmers)
+    32                                           #                 last = kmers[0]
+    33    202454    6282898.0     31.0      0.4                  last = next(kmers)
+    34    202454    4688716.0     23.2      0.3                  count = 1
+    35                                                           
+    36   7380559  172807220.0     23.4     11.5                  for _ in kmers:
+    37   7178105  171812523.0     23.9     11.4                      if _ == last:
+    38     96667    2345535.0     24.3      0.2                          count += 1
+    39                                                               else:
+    40   7081438  569527815.0     80.4     37.8                          kmerfile.write(f'{last}\t{count}\n')
+    41   7081438  168839385.0     23.8     11.2                          last = _
+    42   7081438  162122519.0     22.9     10.7                          count = 1
+    43                                           
+    44    202454   16787259.0     82.9      1.1                  kmerfile.write(f'{last}\t{count}\n')
