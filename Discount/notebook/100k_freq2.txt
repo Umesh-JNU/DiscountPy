@@ -1,0 +1,47 @@
+Timer unit: 1e-07 s
+
+Total time: 200.753 s
+File: <ipython-input-18-8fdcb726b22c>
+Function: countKmers at line 13
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    13                                           def countKmers(k: int, inputFile: str, bucket: str):
+    14         1         75.0     75.0      0.0      if not inputFile.endswith('.txt'):
+    15                                                   raise DiscountCustomError("FileFormatError : required .txt file", inputFile.split('/')[-1], "XXX.txt")
+    16                                               else:
+    17         1         38.0     38.0      0.0          try:
+    18         1         62.0     62.0      0.0              path = bucket.rsplit('/', 1)[0]
+    19         1       3715.0   3715.0      0.0              print(path)
+    20         1       4103.0   4103.0      0.0              os.mkdir(bucket.rsplit('/', 1)[0])
+    21         1         66.0     66.0      0.0          except OSError:
+    22         1         44.0     44.0      0.0              pass
+    23                                               
+    24         1      10250.0  10250.0      0.0      with open(inputFile, 'r') as f:
+    25         1        196.0    196.0      0.0          lines = peekable(map(lambda _: _.rstrip('\n').split('\t'), f))
+    26                                           #         lines = buk(map(lambda _: _.rstrip('\n').split('\t'), f), lambda _: _[0])
+    27                                           #         for _ in lines:
+    28                                           #             print(list(lines[_]))
+    29                                           #         print(list(lines))
+    30                                           
+    31         1         33.0     33.0      0.0          result = []
+    32    586007   30070919.0     51.3      1.5          while lines:
+    33    586006   21420661.0     36.6      1.1              minimizer = lines.peek()[0]
+    34    586006   14755534.0     25.2      0.7              supermersThisBin = takewhile(lines, minimizer)
+    35                                           
+    36    586006  373844518.0    638.0     18.6              kmers = peekable(sorted(flatten(map(lambda _: sliding(_, k), supermersThisBin))))
+    37                                                       
+    38    586006   12640816.0     21.6      0.6              count = 0
+    39    586006   29251861.0     49.9      1.5              lastKmer = kmers.peek()
+    40   7966565  508824192.0     63.9     25.3              while kmers:
+    41   7380559  259163341.0     35.1     12.9                  if kmers.peek() == lastKmer:
+    42    682673   13953614.0     20.4      0.7                      count += 1
+    43    682673   26837469.0     39.3      1.3                      next(kmers)
+    44                                                           else:
+    45   6697886  204252200.0     30.5     10.2                      result.append('%s\t%s'%(lastKmer, count))
+    46   6697886  124428026.0     18.6      6.2                      count = 1
+    47   6697886  251998897.0     37.6     12.6                      lastKmer = next(kmers)
+    48                                                               
+    49    586006   18869626.0     32.2      0.9              result.append('%s\t%s'%(lastKmer, count))
+    50                                           
+    51         1  117201917.0 117201917.0      5.8          open(bucket, 'w').write(''.join('%s\n'%(_) for _ in result))
