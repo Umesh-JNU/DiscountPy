@@ -1,0 +1,33 @@
+Timer unit: 1e-07 s
+
+Total time: 105.568 s
+File: <ipython-input-157-433b622b8418>
+Function: countKmers at line 14
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    14                                           def countKmers(k: int, inputFile: str, bucket: str):
+    15         1         59.0     59.0      0.0      if not inputFile.endswith('.txt'):
+    16                                                   raise DiscountCustomError("FileFormatError : required .txt file", inputFile.split('/')[-1], "XXX.txt")
+    17                                               else:
+    18         1         34.0     34.0      0.0          try:
+    19         1         41.0     41.0      0.0              path = bucket.rsplit('/', 1)[0]
+    20         1       8320.0   8320.0      0.0              print(path)
+    21         1      10597.0  10597.0      0.0              os.mkdir(bucket.rsplit('/', 1)[0])
+    22         1         79.0     79.0      0.0          except OSError:
+    23         1         56.0     56.0      0.0              pass
+    24                                               
+    25         1         51.0     51.0      0.0      def sliding(supermer):
+    26                                                   return [supermer[i : i + k] for i in range(len(supermer) - k + 1)]
+    27                                           
+    28         1         48.0     48.0      0.0      def kmer_fun(x):
+    29                                                   return x[0], sliding(x[1])
+    30                                                   
+    31         1       2461.0   2461.0      0.0      with open(inputFile) as f:
+    32         1        214.0    214.0      0.0          lines = peekable(map(lambda _: kmer_fun(_.rstrip('\n').split('\t')), f))
+    33                                                   
+    34         1       6899.0   6899.0      0.0          with open(bucket, 'w+') as demo:
+    35    586007   42962585.0     73.3      4.1              while lines:
+    36    586006   28373245.0     48.4      2.7                  minimizer = lines.peek()[0]
+    37    586006  494142050.0    843.2     46.8                  supermersThisBin = takeWhile(lines, minimizer)
+    38    586006  490172261.0    836.5     46.4                  demo.writelines(['%s\t%s\n'%(_, supermersThisBin[_]) for _ in supermersThisBin])
