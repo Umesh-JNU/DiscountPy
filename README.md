@@ -9,7 +9,8 @@
  
 [![GitHub license](https://img.shields.io/github/license/Umesh-JNU/DiscountPy?color=orange&style=flat-square)](https://github.com/Umesh-JNU/DiscountPy)
 [![GitHub release](https://img.shields.io/github/release/Umesh-JNU/DiscountPy?logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/DiscountPy/releases/)
-[![GitHub tag](https://img.shields.io/github/tag/Umesh-JNU/DiscountPy?style=flat-square)](https://GitHub.com/Naereen/StrapDown.js/tags/)
+[![GitHub tag](https://img.shields.io/github/tag/Umesh-JNU/DiscountPy?style=flat-square)](https://github.com/Umesh-JNU/DiscountPy/tags/)
+[![GitHub commits](https://img.shields.io/github/commits-since/Umesh-JNU/DiscountPy/v0.1.0.svg?color=green&style=flat-square)](https://github.com/Umesh-JNU/DiscountPy/commit/)
 [![Python 3.6+](https://img.shields.io/badge/python-3.6+-3776AB?logo=Python&logoColor=FFFFFF&style=flat-square)](https://www.python.org/)
 <!-- [![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=Umesh-JNU.Discount-In-Python.Discount&color=1D70B8&logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python) -->
 
