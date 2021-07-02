@@ -33,7 +33,16 @@
 
        poetry install
        poetry update
+3. Now configure python interpreter. For configuring, first get the ` env ` path. To get the ` env ` information, run the following command.
+
+       poetry env info
+       
+      * Or to know only path, run
+         
+            poetry env info --path
       
+>    To know more about poetry, follow [Poetry](https://python-poetry.org/)
+
 Now ` DiscountPy ` is ready to be run.
 
 ## Some codes
