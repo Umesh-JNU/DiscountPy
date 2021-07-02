@@ -7,15 +7,16 @@
 
 <div align="center">
  
-[![MIT](https://img.shields.io/apm/l/vim-mode?color=orange&logo=orange&logoColor=yellow&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python/LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/Umesh-JNU/Discount-In-Python?logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python)
+[![GitHub license](https://img.shields.io/github/license/Umesh-JNU/DiscountPy?color=orange&style=flat-square)](https://github.com/Umesh-JNU/DiscountPy)
+[![GitHub release](https://img.shields.io/github/release/Umesh-JNU/DiscountPy?logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/DiscountPy/releases/)
+[![GitHub tag](https://img.shields.io/github/tag/Umesh-JNU/DiscountPy?style=flat-square)](https://GitHub.com/Naereen/StrapDown.js/tags/)
 [![Python 3.6+](https://img.shields.io/badge/python-3.6+-3776AB?logo=Python&logoColor=FFFFFF&style=flat-square)](https://www.python.org/)
 <!-- [![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=Umesh-JNU.Discount-In-Python.Discount&color=1D70B8&logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python) -->
 
-<a href="https://github.com/Umesh-JNU/Discount-In-Python/stargazers"><img src="https://img.shields.io/github/stars/Umesh-JNU/Discount-In-Python" alt="Stars Badge"/></a>
-<a href="https://github.com/Umesh-JNU/Discount-In-Python/network/members"><img src="https://img.shields.io/github/forks/Umesh-JNU/Discount-In-Python" alt="Forks Badge"/></a>
-<a href="https://github.com/Umesh-JNU/Discount-In-Python/pulls"><img src="https://img.shields.io/github/issues-pr/Umesh-JNU/Discount-In-Python" alt="Pull Requests Badge"/></a>
-<a href="https://github.com/Umesh-JNU/Discount-In-Python/issues"><img src="https://img.shields.io/github/issues/Umesh-JNU/Discount-In-Python" alt="Issues Badge"/></a>
+<a href="https://github.com/Umesh-JNU/DiscountPy/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Umesh-JNU/DiscountPy"></a>
+<a href="https://github.com/Umesh-JNU/DiscountPy/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/Umesh-JNU/DiscountPy"></a>
+<a href="https://github.com/Umesh-JNU/DiscountPy/pulls"><img src="https://img.shields.io/github/issues-pr/Umesh-JNU/DiscountPy" alt="Pull Requests Badge"/></a>
+<a href="https://github.com/Umesh-JNU/DiscountPy/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/Umesh-JNU/DiscountPy"></a>
 </div>
 
 # Contents:
