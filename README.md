@@ -11,7 +11,7 @@
 [![GitHub release](https://img.shields.io/github/release/Umesh-JNU/DiscountPy?logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/DiscountPy/releases/)
 [![GitHub tag](https://img.shields.io/github/tag/Umesh-JNU/DiscountPy?style=flat-square)](https://github.com/Umesh-JNU/DiscountPy/tags/)
 [![GitHub commits](https://img.shields.io/github/commits-since/Umesh-JNU/DiscountPy/v0.1.0.svg?color=green&style=flat-square)](https://github.com/Umesh-JNU/DiscountPy/commit/)
-[![Python 3.6+](https://img.shields.io/badge/python-3.6+-3776AB?logo=Python&logoColor=FFFFFF&style=flat-square)](https://www.python.org/)
+[![Python 3.6+](https://img.shields.io/badge/python-3.9+-3776AB?logo=Python&logoColor=FFFFFF&style=flat-square)](https://www.python.org/)
 <!-- [![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=Umesh-JNU.Discount-In-Python.Discount&color=1D70B8&logo=GitHub&logoColor=FFFFFF&style=flat-square)](https://github.com/Umesh-JNU/Discount-In-Python) -->
 
 <a href="https://github.com/Umesh-JNU/DiscountPy/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Umesh-JNU/DiscountPy"></a>
@@ -27,7 +27,9 @@
   
 
 ## Requirements
-<strong><i>DiscountPy</i></strong> is completely Python based. To run it on your machine, ` python >= 3.7 ` is required.
+>   1. <strong><i>DiscountPy</i></strong> is completely Python based. To run it on your machine, ` python >= 3.9 ` is required.<br>
+>   2. <strong><i>[Poetry](https://python-poetry.org/)</i></strong> is a tool for dependency management and packaging in Python. Make sure to install it.<br>
+>   3. Try to run all the commands in ` Powershell `
 
 ## Setup
 1. Installation: <i>You can download the zip file or clone it.</i>
