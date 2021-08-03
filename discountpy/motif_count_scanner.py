@@ -8,8 +8,7 @@ class MotifCountingScanner:
     """
     def __init__(self, space: MotifSpace):
         self.scanner = space.scanner
-        self.motifCount = MotifCounter(space)
-    
+        
     def scanRead(self, counter: MotifCounter, read):
         for m in self.scanner.allMatches(read):
             if m.feature.valid:
@@ -17,4 +16,4 @@ class MotifCountingScanner:
 
     def scanGroup(self, counter: MotifCounter, rs):
         for r in rs:
-            self.scanRead(counter, r.strip('\n'))
+            self.scanRead(counter, r)

@@ -1,13 +1,13 @@
 from discountpy.motif_space import MotifSpace
 from discountpy.motif import Motif
-
+import numpy as np
 
 class MotifCounter:
     """ Main frequency counter
     """
     def __init__(self, space: MotifSpace):
         sizeOfCounter = len(space.byPriority)
-        self.countArr = [0]*sizeOfCounter
+        self.countArr = np.ndarray(sizeOfCounter, dtype=np.int64)
 
     """ Increment the count of the corresponding Motif
     """

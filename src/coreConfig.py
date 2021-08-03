@@ -2,6 +2,7 @@ import os
 from .color import Col
 from src.counting import countKmers
 from discountpy.motif_space import MotifSpace, _MotifSpace
+import time
 
 class DiscountCustomError(Exception):
     def __init__(self, msg, arg, req):
@@ -76,7 +77,10 @@ class CoreConf:
         self.MINIMIZERS = args.minimizers
         self.ORDER = args.o
         self.OUTPUT = args.output  
-        print(Col.V, 'Executing...', Col.W)      
-        self.TEMPLATESPACE = MotifSpace(_MotifSpace().motifsOfLength(width=self.WIDTH))
+        print(Col.V, 'Executing...', Col.W)
         
+        t = time.time()
+        print('exe =', t)
+        self.TEMPLATESPACE = _MotifSpace().ofLength(w=self.WIDTH)
+        print('exe finish =',time.time()-t)
         # print(self.K, self.WIDTH, self.DATASET, self.MINIMIZERS, self.ORDER)

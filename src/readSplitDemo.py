@@ -13,9 +13,8 @@ class ReadSplitConf(CoreConf):
 
     def getInputSequences(self) -> iter:
         with open(self.DATASET) as f:
-            for _ in filter(lambda _: not _.startswith('>'), f):
-                for _ in re.split(r"[^ACGTU]+", _.rstrip('\n')):
-                    yield _
+            return map(lambda _: re.split(r"[^ACGTU]+", _.rstrip()), 
+                filter(lambda _: not _.startswith('>'), f.readlines()))
         
     def getFrequencySpace(self, validMotifs) -> ms.MotifSpace:
         inputdata = self.getInputSequences()
@@ -28,8 +27,7 @@ class ReadSplitConf(CoreConf):
     def getSplitter(self) -> me.MotifExtractor:
         def use():
             with open(self.MINIMIZERS) as f:
-                for _ in f:
-                    yield _.strip('\n') 
+                return (_.rstrip() for _ in f.readlines())
 
         template = self.TEMPLATESPACE
         validMotifs = use() if self.MINIMIZERS else template.byPriority

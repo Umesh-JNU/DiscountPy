@@ -71,8 +71,8 @@ def _quadToByte(quad: str, offset: int) -> np.int64:
     while (i < end):
         c = 'A' if(i >= len(quad)) else quad[i]
         twobits = charToTwobit(c)
-        res = res if i==0 else (res << 2) | twobits
-
+        res = twobits if i==0 else (res << 2) | twobits
+        # print(res, format(res, '064b'))
         i += 1
     
     return np.int64(res)
@@ -85,36 +85,18 @@ def stringToBytes(bps: str) -> list:
     return r
 
 """ Convert a byte array of quads to a string. The length of the resulting string must be supplied. """
-def bytesToString(byteArr, builder, offset: int, size: int) -> str:
+def bytesToString(byteArr: bytearray, builder: str, offset: int, size: int) -> str:
+    # print(byteArr)
     startByte = offset // 4
 
     i = startByte
     while (i < len(byteArr)):
         if (len(builder) < size):
             if (i == startByte):
-                builder.append(byteToQuad(bytes(i)).substring(offset % 4, 4))
+                of = offset % 4
+                builder += byteToQuad(byteArr[i])[of : of + 4]
             else:
-                builder.append(byteToQuad(bytes(i)))
+                builder += byteToQuad(byteArr[i])
         i += 1
 
-    return builder.substring(0, size)
-
-
-# def bytesToString(bytes: Array[Byte], builder: StringBuilder, offset: Int, size: Int): NTSeq = {
-#     val startByte = offset / 4
-
-#     var i = startByte
-#     while (i < bytes.size) {
-#       if (builder.size < size) {
-#         if (i == startByte) {
-#           builder.append(byteToQuad(bytes(i)).substring(offset % 4, 4))
-#         } else {
-#           builder.append(byteToQuad(bytes(i)))
-#         }
-#       }
-#       i += 1
-#     }
-#     builder.substring(0, size)
-#   }
-# }
-
+    return builder[:size]

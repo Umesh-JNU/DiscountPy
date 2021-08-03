@@ -23,7 +23,7 @@ class Features:
         self.valid = valid
 
     def __repr__(self):
-        return 'Pattern=%s, Rank=%s, Valid=%s' % (self.pattern, self.rank, self.valid)
+        return 'Features(%s,%d,%s)' % (self.pattern, self.rank, self.valid)
 
 
 class Motif:

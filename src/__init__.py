@@ -28,5 +28,7 @@ def main():
     parser.add_argument('--output', metavar='', type=str, help='Generates output of Super-mers with minimizers')
     parser.add_argument("-v", '--version', action='version', help="Version of the tool")
 
-    readSplitDemo(parser.parse_args())
+    readSplitDemo(parser.parse_args(['-k','28', '-m', '10', '-f', "data/testData.fasta", '--output', "output/out.txt"]))
 
+if __name__ == '__main__':
+    main()
