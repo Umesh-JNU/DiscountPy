@@ -95,8 +95,3 @@ Now ` DiscountPy ` is ready to be run.
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/Umesh-JNU/Discount-In-Python)
 
 
-## Author
-Umesh Kumar
-
-Testing
-
